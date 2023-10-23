@@ -1,0 +1,75 @@
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+    <div class="container">
+        <h1 class="title">Create an Account!</h1>
+    </div>
+    </div>
+</section>
+
+<section class="section">
+<div class="container">
+    <form (ngSubmit)="submitForm()" #registerForm=""ngForm>
+
+
+        <div class="field">
+            <label class="label">Name</label>
+            <input 
+                type="text" 
+                name="name" 
+                class="input" 
+                style="width: 500px;" 
+                [(ngModel)]="name"
+                #nameInput="ngModel"
+                required>
+
+            <div class="help is-error" *ngIf="nameInput.invalid && nameInput.touched">
+                Your name is required
+            </div>
+
+        </div>
+        <br>
+        <div class="field">
+            <label class="label">Email</label>
+            <input 
+                type="text" 
+                name="email" 
+                class="input" 
+                style="width: 500px;" 
+                [(ngModel)]="email"
+                #emailInput="ngModel"
+                required
+                email>
+
+            <div class="help is-error" *ngIf="emailInput.invalid && emailInput.touched">
+                Your email is required
+            </div>
+
+        </div>
+        <br>
+        <div class="field">
+            <label class="label">Password</label>
+            <input 
+                type="text" 
+                name="password" 
+                class="input" 
+                style="width: 500px;" 
+                [(ngModel)]="password"
+                #passwordInput="ngModel"
+                required
+                password>
+
+            <div class="help is-error" *ngIf="passwordInput.invalid && passwordInput.touched">
+                Your password is required
+            </div>
+
+        </div>
+        <br>
+        <button 
+            type="submit" 
+            class="button is-warning"
+            [disabled]="registerForm.invalid">
+            Create Account!
+        </button>
+    </form>
+</div>
+</section>

@@ -1,0 +1,43 @@
+Feature: Manage Clients
+  As a client
+  I want to create an account
+  So that I can track my meetings and projects with Anna
+
+  Scenario: Register a new Client
+    Given the user is on the Client creation page
+    When the user clicks on the fillable forms
+    And enters the following client details:
+      | Name             | Email                    | Phone            |
+      | John Doe         | john.doe@example.com     | +1 555-123-4567  |
+    And clicks the "Create Account!" button
+    Then the client "John Doe" should be added successfully
+
+
+
+
+Feature: Schedule Client Meetings
+  As a client 
+  I want to schedule client meetings
+  So that we can ensure effective communication
+
+  Background:
+    Given the user is on the meetings page
+
+  Scenario: Schedule a Meeting with AAF
+    When the user fills out the client name and meeting location forms
+    And chooses the meeting date and time
+    And clicks the "Save" button
+    Then the meeting should be scheduled successfully
+
+  Scenario: Reschedule a Meeting with a Client
+    When the user selects a previously scheduled meeting
+    And clicks the edit hyperlink under the action column
+    And updates the meeting location
+    And clicks the "Save" button
+    Then the meeting should be rescheduled successfully
+
+  Scenario: Cancel a Scheduled Meeting
+    When the user selects a scheduled meeting
+    And clicks the "Delete" button under the action column 
+    Then the meeting should be canceled
+
