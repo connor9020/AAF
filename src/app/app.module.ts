@@ -3,6 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { MeetingScheduleComponent } from './meeting-schedule/meeting-schedule.component';
 import { ClientCreationComponent } from './client-creation/client-creation.component';
 import { HomeComponent } from './home/home.component';
@@ -21,7 +25,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
